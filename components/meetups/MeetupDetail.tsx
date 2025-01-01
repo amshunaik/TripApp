@@ -157,7 +157,7 @@ const MeetupDetail:React.FC<MeetupItemProps> = (props) => {
       </div>
       <div className="flex flex-col gap-2 mt-4 relative ml-72">
         <h3 className="text-xl font-semibold">{props.title}</h3>
-        <div className="flex flex-row gap-32">
+        <div className="flex flex-row gap-32 ">
         <h3 className="text-xs font-normal">Start Date :{props.date}</h3>
         <h3 className="text-xs font-normal">{props.traveler}</h3>
       </div>

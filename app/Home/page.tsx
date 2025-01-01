@@ -32,7 +32,19 @@ const Homepage = () => {
           setdate(selectedValue);
           console.log(date);
       }
-  useEffect(()=>{
+  useEffect( () =>{
+    const fetchData = async () => {
+      try {
+          const r = await fetch("http://localhost:3005/profile");
+          const data = await r.json();
+          console.log("Back home :",data);
+         
+          setloaded(dum);
+          filterData();//Assuming this is a function defined elsewhere
+      } catch (error) {
+          console.error("Error fetching data:", error);
+      }
+  };
     setloaded(dum);
     filterData();
   },[loc,date,trav])
@@ -64,14 +76,14 @@ const Homepage = () => {
     
   return (
     <div className=" justify-center  " >
-        <div className="flex flex-row justify-center gap-8 items-center h-[130px] w-[892px] shadow-md  mt-20 ml-[340px] px-[29px]rounded-3xl	">
-            <h2 className="text-xs font-semibold">Select any one</h2>
+        <div className="flex flex-row justify-center gap-8 items-center border-2 rounded-lg h-[120px] w-auto   mt-20 mx-[240px] px-[29px]rounded-3xl	">
+            <h2 className="text-lg font-medium">Select any one</h2>
             <div className="p-4">
-                <div className="flex flex-row gap-2">
-                <img src="Send.png" alt="" />
-                <h1 className="text-lg">Select Location</h1>
+                <div className="flex flex-row gap-2 items-center">
+                <img src="Send.png" alt="" className='w-8 h-6'/>
+                <h1 className="pl-2 text-lg text-blue-500">Select Location</h1>
                 </div>
-                <select name="" id="location" onChange={printSelectedLocation}>
+                <select name="" id="location" onChange={printSelectedLocation}  className='border-2 mt-4 px-2'>
                     <option value="">Location</option>
                     {dum.map((d)=>
                         
@@ -83,10 +95,10 @@ const Homepage = () => {
             <div className="p-4">
             <div className="flex flex-row gap-2">
             <img src="system-uicons_clock.png" alt="" />
-            <h1 className="text-lg">Select Traveller</h1>
+            <h1 className="text-lg text-blue-500">Select Traveller</h1>
             </div>
-                <select name="" id="traveller" onChange={printSelectedtraveler}>
-                    <option value="">Traveller</option>
+                <select name="" id="traveller" onChange={printSelectedtraveler} className='border-2 mt-4 px-2'>
+                    <option value="" >Traveler</option>
                     {dum.map((d)=>
                         
                     <option value={d.traveller}>{d.traveller}</option>
@@ -97,9 +109,9 @@ const Homepage = () => {
             <div className="p-4">
             <div className="flex flex-row gap-2">
             <img src="system-uicons_calendar-month.png" alt="" />
-            <h1 className="text-lg">Select Date</h1>
+            <h1 className="text-lg text-blue-500">Select Date</h1>
             </div>
-                <select name="" id="date" onChange={printSelectedDate}>
+                <select name="" id="date" onChange={printSelectedDate}  className='border-2 mt-4 px-2'>
                     <option value="">Date</option>
                     
                     {dum.map((d)=>

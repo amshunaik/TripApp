@@ -2,7 +2,7 @@
 import dt from "./Datainf"
 const dum:dt[]=[new dt('m1',"Snow Forest","winter.jpg","By Neelabh","04/17/24","Taste the cold of Jammu and Kashmir in India.","4D/3N",
   "189.25","J&k,India"),new dt('m2',"Great Indian one horned Rhinoceros","wildlife.jpeg","By Suresh","06/15/24","Explore wild flora and fauna.","3D/2N",
-    "300.25","Golaghat,Assam"),new dt('m3',"Beautiful Waterfall","waterfall.png","By Neelabh","04/17/24","Taste the waterfall and the oceannic waves.","4D/3N",
+    "300.25","Golaghat,Assam"),new dt('m3',"Beautiful Waterfall","waterfall.png","By Neelabh","04/17/24","Taste the waterfall and the oceanic waves.","4D/3N",
       "3090.25","Shivamogga,Karnataka"),
       new dt('m4',"Ancient and historical city ","ujjain.jpeg","By Suresh","06/15/24","Taste the Beauty of Temples and a peaceful mind.","2D/1N",
         "250.96","Ujjain,India") ]
