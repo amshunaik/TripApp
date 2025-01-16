@@ -48,7 +48,7 @@ TripApp is a comprehensive travel management platform designed to simplify and e
 
 - cd server
 
-2 Install dependencies:
+2. Install dependencies:
 
 - npm install
 3. Add the MongoDB connection string in .env:
@@ -61,11 +61,11 @@ TripApp is a comprehensive travel management platform designed to simplify and e
 ### Frontend
 1. Navigate to the frontend folder:
 
+- Go to App folder
 - Install dependencies:
 
-- npm install
+''' npm install'''
 - Add the backend API URL and other variables in .env:
-
 - NEXT_PUBLIC_API_URL=http://localhost:5000
 2. Start the frontend server:
 
