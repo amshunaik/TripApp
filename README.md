@@ -56,15 +56,15 @@ TripApp is a comprehensive travel management platform designed to simplify and e
 - MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/<database-name>?retryWrites=true&w=majority
 4. Start the server using Nodemon:
 
-- nodemon server.tsx
-- The server runs on http://localhost:5000.
+- nodemon path.tsx
+- The server runs on http://localhost:3005.
 ### Frontend
 1. Navigate to the frontend folder:
 
 - Go to App folder
 - Install dependencies:
 
-''' npm install'''
+``` npm install```
 - Add the backend API URL and other variables in .env:
 - NEXT_PUBLIC_API_URL=http://localhost:5000
 2. Start the frontend server:
