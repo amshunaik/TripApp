@@ -41,3 +41,34 @@ TripApp is a comprehensive travel management platform designed to simplify and e
 * Type-Safe Development:
   
 ``` - Used TypeScript for strong typing, enhancing scalability and reducing bugs during development.```
+
+## How code runs :
+### Backend (Server)
+1. Navigate to the server folder:
+
+- cd server
+
+2 Install dependencies:
+
+- npm install
+3. Add the MongoDB connection string in .env:
+
+- MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/<database-name>?retryWrites=true&w=majority
+4. Start the server using Nodemon:
+
+- nodemon server.tsx
+- The server runs on http://localhost:5000.
+### Frontend
+1. Navigate to the frontend folder:
+
+- Install dependencies:
+
+- npm install
+- Add the backend API URL and other variables in .env:
+
+- NEXT_PUBLIC_API_URL=http://localhost:5000
+2. Start the frontend server:
+
+- npm run dev
+- The app runs on http://localhost:3000.
+
