@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const connectDb=require('./Db.js')
 const itemModel=require('./Schema.js')
+const AddedTrip=require('./TripSchema.js')
 const cookieParser=require("cookie-parser")
 const {createTokens,validateToken}=require('./JWT')
 require('dotenv').config();
@@ -15,14 +16,10 @@ app.use(cookieParser())
 app.use(cors()); // Enables CORS for all origins
 app.use(express.json());
 
-// Route to handle login
-// app.post('/user', (req, res) => {
-//     console.log('Request received at /user:', req.body); // Log incoming request
-//     res.status(200).json({ message: 'Test successful' });
-// });
+
 connectDb();
 app.post('/signup', async(req, res) => {
-    const {username,email,password}=req.body;
+    const {username,email,phone,chatno,password}=req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
     const user={username,email,password:hashedPassword};
     console.log("User Added : ",user);
@@ -33,8 +30,31 @@ app.post('/signup', async(req, res) => {
 
     
 })
+
+app.post('/:userid/addTrip', async(req, res) => {
+    const {name:name,email:email,phone:phone,size:size,startdate:startdate,selectedOption:selectedOption,plan:plan}=req.body;
+    const userId = req.params.userid;
+    const data=req.body
+    console.log({"userid":userId,data})
+    const Detail = new AddedTrip({"userid":userId,...data});
+    await Detail.save();
+    res.status(201).json(Detail);
+
+    
+})
+app.get('/requests', async(req, res) => {
+    //const {name:name,email:email,phone:phone,size:size,startdate:startdate,selectedOption:selectedOption,plan:plan}=req.body;
+    //const items = JSON.parse(localStorage.getItem('items'));
+
+    const Detail = await AddedTrip.find({userid:items._id});
+    //await Detail.save();
+    res.status(201).json(Detail);
+    res.send(Detail)
+
+    
+})
 app.post('/user', async(req, res) => {
-    const {username,email,password}=req.body;
+    const {username,email,phone,chatno,password}=req.body;
     //const user=req.body
     const user = await itemModel.findOne({ email });
     if (!user) {
@@ -73,7 +93,7 @@ app.post('/user', async(req, res) => {
         else {
             console.log('ERROR: Could not log in');
         }
-        res.json("User logged in")
+        res.send(user);
     
 })
 

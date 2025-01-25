@@ -1,0 +1,21 @@
+{
+    "guidedetail": [
+      {
+        "img": "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "name": "Veronica",
+        "age": "30",
+        "experience": "5 years",
+        "placesExpertGuideFor": ["Pairs", "Veitnam","Ujjain"],
+        "languagesSpoken": ["English", "Latin","Veitnameese"]
+      },
+      {
+        "img": "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "name": "Rahul",
+        "age": "32",
+        "experience": "3 years",
+        "placesExpertGuideFor": ["Jharkhand", "Gujarat","Mysore"],
+        "languagesSpoken": ["Marathi", "Hindi","Punjabi"]
+      }
+    ]
+  }
+  

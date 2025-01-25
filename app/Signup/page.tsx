@@ -7,13 +7,15 @@ const Page = () => {
     const router=useRouter();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState(null);
+    const [chatNo, setChatNo] = useState(null);
     const [password, setPassword] = useState('');
     
 
     const handleLogin = async (e) => {
         e.preventDefault();
 
-        const loginData = { username: name, email: email, password: password };
+        const loginData = { username: name, email: email,phone:phone,chatno:chatNo,password: password };
         console.log('Sending data:', loginData);
 
         try {
@@ -62,6 +64,21 @@ const Page = () => {
                     className="border-2 p-2 w-[350px]"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                />
+                <input
+                    type="tel"
+                    placeholder="Enter Phone Number :"
+                    className="border-2 p-2 w-[350px]"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                />
+
+                <input
+                    type="tel"
+                    placeholder="Wnter WhatsApp Number :"
+                    className="border-2 p-2 w-[350px]"
+                    value={chatNo}
+                    onChange={(e) => setChatNo(e.target.value)}
                 />
                 <input
                     type="password"

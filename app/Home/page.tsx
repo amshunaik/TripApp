@@ -75,7 +75,7 @@ const Homepage = () => {
     
     
   return (
-    <div className=" justify-center  " >
+    <div className=" justify-center   " >
         <div className="flex flex-row justify-center gap-8 items-center border-2 rounded-lg h-[120px] w-auto   mt-20 mx-[240px] px-[29px]rounded-3xl	">
             <h2 className="text-lg font-medium">Select any one</h2>
             <div className="p-4">
