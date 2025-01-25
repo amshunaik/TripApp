@@ -32,7 +32,7 @@ app.post('/signup', async(req, res) => {
 })
 
 app.post('/:userid/addTrip', async(req, res) => {
-    const {name:name,email:email,phone:phone,size:size,startdate:startdate,selectedOption:selectedOption,plan:plan}=req.body;
+    //const {name:name,email:email,phone:phone,size:size,startdate:startdate,selectedOption:selectedOption,plan:plan}=req.body;
     const userId = req.params.userid;
     const data=req.body
     console.log({"userid":userId,data})

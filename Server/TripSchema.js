@@ -5,6 +5,10 @@ const data=new mongoose.Schema({
     email:String,
     phone:String,
     size:Number,
+    countryloc:Number,
+    stateloc:Number,
+    cityloc:String,
+
     startdate:String,
     enddate:String,
     selectedOption:String,

@@ -2,7 +2,17 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation';
 
+import {
+	CitySelect,
+	CountrySelect,
+	StateSelect,
+} from 'react-country-state-city';
+import 'react-country-state-city/dist/react-country-state-city.css';
+
 const page = () => {
+    const [countryid, setCountryid] = useState(0);
+	const [stateid, setstateid] = useState(0);
+    const [city, setcity]=useState('');
     const [person,setperson]=useState('');
     const [email,setemail]=useState('');
     const [phone,setphone]=useState('');
@@ -26,7 +36,7 @@ const page = () => {
 
     const Handledetail= async(e)=>{
         e.preventDefault();
-        const tripplan={name:person,email:email,phone:phone,size:size,startdate:start,enddate:end,selectedOption:selectedOption,plan:plan};
+        const tripplan={name:person,email:email,phone:phone,size:size, countryloc:countryid, stateloc:stateid, cityloc:city,startdate:start,enddate:end,selectedOption:selectedOption,plan:plan};
 
         try {
             const response = await fetch(`http://localhost:3005/${userid}/addTrip`, {
@@ -88,6 +98,53 @@ const page = () => {
             <label htmlFor="" className='font-medium text-lg '>Total no of people in group :</label>
             <input value={size} onChange={(e)=>{setsize( Number(e.target.value))}} type="number" min={1} className='border-2 py-2 px-1  text-blue-800 capitalize'   />
         </div>
+      
+
+        <div className='border-2  bg-blue-300 p-2'>
+        <h2 className='text-black-700 font-semibold text-xl mb-2'>Trip Location  </h2>
+			<div className='row'>
+				<div className='col'>
+					<h6>Country</h6>
+					<CountrySelect
+						onChange={(e) => {
+							setCountryid(e.id);
+							console.log(e);
+						}}
+						placeHolder='Select Country'
+					/>
+				</div>
+				<div className='col'>
+					<h6>State</h6>
+					<StateSelect
+						disabled={!countryid}
+						countryid={countryid}
+						onChange={(e) => {
+							setstateid(e.id);
+							console.log(e);
+						}}
+						placeHolder='Select State'
+					/>
+				</div>
+				<div className='col'>
+					<h6>City</h6>
+					<CitySelect
+						disabled={!stateid}
+						countryid={countryid}
+						stateid={stateid}
+						onChange={(e) => {
+                            setcity(e.target.value)
+							console.log(e);
+						}}
+						placeHolder='Select City'
+					/>
+				</div>
+			</div>
+		</div>
+        
+
+
+
+
         <div className='flex flex-row gap-12 justify-between'>
             <div className=' flex flex-col'>
                 <label htmlFor="" className='font-medium text-lg '>Start Date :</label>
@@ -101,7 +158,7 @@ const page = () => {
         <div className=' flex flex-col'>
             <label htmlFor=""className='font-medium text-lg '>Looking for :</label>
             <select name="options" id="" value={selectedOption} onChange={handleChange} className='border-2 py-2 px-1  text-blue-800  '>
-                <option value="Join">Welcoming more individuals to join</option>
+                <option value="">Welcoming more individuals to join</option>
                 <option value="Guide">Looking for a nice guide</option>
             </select>
         </div>
